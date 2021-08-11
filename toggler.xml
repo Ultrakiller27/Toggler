@@ -1,0 +1,28 @@
+<Interface xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../Interface.xsd">
+  <Assets>
+	  <Texture name="on_icon" file="assets/on.dds" />
+	  <Texture name="off_icon" file="assets/off.dds" />
+  </Assets>
+   <Scripts>
+      <Script file="toggler.lua" />
+   </Scripts>
+    <Windows>
+	  <Window name="toggler_button" layer="secondary" movable="true" popable="false"  handleinput="true" savesettings="true">
+		<Size><AbsPoint x="64" y="64"/></Size>
+		<Anchors><Anchor point="left" relativePoint="left" relativeTo="EA_Window_OverheadMap"><AbsPoint x="0" y="-16" /></Anchor></Anchors>		
+		<Windows>
+			<Button name="$parentBtn" inherits="DefaultButton" backgroundtexture="on_icon" layer="default"  handleinput="true" texturescale="0.56" savesettings="true">
+				<Size><AbsPoint x="36" y="36"/></Size>
+				<EventHandlers><EventHandler event="OnLButtonUp" function="toggler.Toggle"/><EventHandler event="OnMouseOver" function="toggler.MainTooltip"/><EventHandler event="OnRButtonUp" function="toggler.Menu"/></EventHandlers>
+				<TexSlices>
+					<Normal id="SquareButton" /> 
+					<NormalHighlit id="SquareButton-Rollover" /> 
+					<Pressed id="SquareButton-Depressed" /> 
+					<PressedHighlit id="SquareButton-Depressed" /> 
+				</TexSlices>
+				<Anchors><Anchor point="topleft" relativeTo="$parent" relativePoint="topleft"/></Anchors>
+			</Button>		
+		</Windows>
+	  </Window>
+   </Windows>
+</Interface>
